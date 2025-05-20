@@ -1,4 +1,4 @@
-const Pizza = (props) => {
+export default function Pizza(props) {
   return (
     <div className="pizza">
       <h1>{props.name}</h1>
@@ -6,6 +6,4 @@ const Pizza = (props) => {
       <img src={props.image} alt={props.name} />
     </div>
   );
-};
-
-export default Pizza;
+}
