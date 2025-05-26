@@ -10,11 +10,13 @@ export default function Cart({ cart, onCheckout }) {
     total += current.pizza.sizes[current.size];
   }
 
+  console.log(cart);
+
   return (
     <div className="cart">
       <h2>Cart</h2>
       <ul>
-        {cart.map((item, index) => (
+        {cart?.map((item, index) => (
           <li key={index}>
             <span className="size">{item.size}</span>
             <span className="type">{item.pizza.name}</span>
