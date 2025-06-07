@@ -6,10 +6,19 @@ import Modal from "../Modal";
 
 import { formatPrice } from "../utils";
 import getPastOrder from "../api/getPastOrder";
+import ErrorBoundary from "../ErrorBoundary";
 
 export const Route = createLazyFileRoute("/past")({
-  component: PastOrders,
+  component: ErrorProofPastOrders,
 });
+
+function ErrorProofPastOrders(props) {
+  return (
+    <ErrorBoundary>
+      <PastOrders {...props} />
+    </ErrorBoundary>
+  );
+}
 
 function PastOrders() {
   const [page, setPage] = useState(1);
