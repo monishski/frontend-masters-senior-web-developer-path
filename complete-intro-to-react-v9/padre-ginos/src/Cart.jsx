@@ -10,8 +10,6 @@ export default function Cart({ cart, onCheckout }) {
     total += current.pizza.sizes[current.size];
   }
 
-  console.log(cart);
-
   return (
     <div className="cart">
       <h2>Cart</h2>
