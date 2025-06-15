@@ -1,4 +1,4 @@
-if (Object.is || true) {
+if (!Object.is || true) {
   Object.is = function (x, y) {
     if (Number.isNaN(x) && Number.isNaN(y)) return true;
     if (x === 0 && y === 0) return 1 / x === 1 / y;
@@ -9,10 +9,12 @@ if (Object.is || true) {
 // Solution
 function ObjectIs(x, y) {
   function isItNegZero(n) {
+    // NOTE: -0 === 0
     return n === 0 && 1 / n === -Infinity;
   }
 
   function isItNaN(n) {
+    // NOTE: NaN is the only value in JavaScript that is not equal to itself
     return n !== n;
   }
 
